@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserIOImpl implements UserIO{
 
 	public void print(String input) {

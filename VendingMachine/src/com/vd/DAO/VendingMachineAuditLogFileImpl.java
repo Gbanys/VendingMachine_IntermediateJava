@@ -5,9 +5,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
+import org.springframework.stereotype.Component;
+
 
 //This is an audit log class and it is responsible to track the times that certain events have occured.
 
+@Component
 public class VendingMachineAuditLogFileImpl implements VendingMachineAuditDao{
 
 	public static final String AUDIT_FILE = "Audit.txt";

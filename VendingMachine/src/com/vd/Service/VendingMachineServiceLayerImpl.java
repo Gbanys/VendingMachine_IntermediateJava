@@ -3,14 +3,19 @@ package com.vd.Service;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.vd.DAO.VendingMachineAuditDao;
 import com.vd.DAO.VendingMachineDao;
 import com.vd.DAO.VendingMachinePersistenceException;
 import com.vd.DTO.Change;
 import com.vd.DTO.Item;
 
+@Component
 public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer{
 	
+	@Autowired
 	private VendingMachineDao dao;
 	private VendingMachineAuditDao auditDao;
 	

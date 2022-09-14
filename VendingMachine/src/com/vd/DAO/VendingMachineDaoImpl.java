@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
 import com.vd.DTO.Change;
 import com.vd.DTO.Change.Coin;
 import com.vd.DTO.Item;
 
+@Component
 public class VendingMachineDaoImpl implements VendingMachineDao{
 	
 	

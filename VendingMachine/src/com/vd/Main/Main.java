@@ -1,5 +1,8 @@
 package com.vd.Main;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.vd.Controller.VendingMachineController;
 import com.vd.DAO.VendingMachineAuditDao;
 import com.vd.DAO.VendingMachineAuditLogFileImpl;
@@ -19,13 +22,10 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 
-		UserIO io = new UserIOImpl();
-		VendingMachineDao dao = new VendingMachineDaoImpl();
-		VendingMachineAuditDao auditDao = new VendingMachineAuditLogFileImpl();
-		VendingMachineView view = new VendingMachineView(io);
-		VendingMachineServiceLayer serviceLayer = new VendingMachineServiceLayerImpl(dao, auditDao);
-		VendingMachineController Controller = new VendingMachineController(serviceLayer, view);
-		Controller.run();
+		//Use the XML file for configuration and inject objects into classes
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		VendingMachineController controller = ctx.getBean("controller", VendingMachineController.class);
+		controller.run();
 	}
 
 }
