@@ -36,11 +36,7 @@ class VendingMachineServiceLayerImplTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-    	Item item = new Item();
-    	item.setItemName("Milkyway");
-    	item.setPrice(new BigDecimal("2.00"));
-    	item.setInventoryLevel(10);
-    	service.addItem(item);
+
     }
 
     @AfterEach
@@ -89,7 +85,7 @@ class VendingMachineServiceLayerImplTest {
     		fail("InsufficientFundsException was not thrown");
     	}
     	catch (NoItemInventoryException | VendingMachinePersistenceException | DataValidationException | InvalidItemException e) {
-    		fail("Incorrect exception was thrown");
+    		fail("Incorrect Exception thrown");
     	}
     	catch(InsufficientFundsException e) {
     		return;

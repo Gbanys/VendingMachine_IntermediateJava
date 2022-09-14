@@ -16,8 +16,8 @@ public class VendingMachineDaoStubImpl implements VendingMachineDao{
 	
 	public VendingMachineDaoStubImpl() {
 		item = new Item();
-		item.setItemName("Dairymilk");
-		item.setPrice(new BigDecimal("2.50"));
+		item.setItemName("Milkyway");
+		item.setPrice(new BigDecimal("2.00"));
 		item.setInventoryLevel(10);
 	}
 	
@@ -34,6 +34,7 @@ public class VendingMachineDaoStubImpl implements VendingMachineDao{
 	@Override
 	public Change buyItems(String name, BigDecimal cash) throws VendingMachinePersistenceException{
 		if(name.equals(item.getItemName())) {
+			item.setInventoryLevel(item.getInventoryLevel() - 1);
 			return change;
 		}
 		else {
